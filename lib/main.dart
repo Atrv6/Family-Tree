@@ -124,7 +124,9 @@ class FamilyTreeProvider extends ChangeNotifier {
 
   void _removeNodesFromList(PersonNode node) {
     nodes.remove(node);
-    for (var child in node.children) _removeNodesFromList(child);
+    for (var child in node.children) {
+      _removeNodesFromList(child);
+    }
   }
 
   Future<void> saveData() async {
@@ -149,7 +151,9 @@ class FamilyTreeProvider extends ChangeNotifier {
 
   void _collectNodes(PersonNode node) {
     nodes.add(node);
-    for (var child in node.children) _collectNodes(child);
+    for (var child in node.children) {
+      _collectNodes(child);
+    }
   }
 }
 
